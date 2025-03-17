@@ -63,6 +63,7 @@ export const APIProvider = ({ children }) => {
 
     const getEntryList = async (id) => {
         try {
+            console.log(id)
             const response = await myAxios.get(`api/entry-list/${id}`);
             setNevezesek(response.data)
         } catch (error) {

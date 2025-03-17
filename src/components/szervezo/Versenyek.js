@@ -32,9 +32,9 @@ function Versenyek() {
 
   function nevezes(esemenynev, id) {
     setNevezesPanelAllapot(true)
-    setEsemenyNev(esemenynev)
     setID(id)
-    console.log(eventID, esemenyNev)
+    console.log(id)
+    setEsemenyNev(esemenynev)
   }
 
   function szerkesztes() {
@@ -43,9 +43,9 @@ function Versenyek() {
 
   return (
     <div>
-      <Torles allapot={torolPanelAllapot} kilep={() => setTorolPanelAllapot(false)} enev={esemenyNev} size="lg" />
-      <NevezesiLista allapot={nevezesPanelAllapot} kilep={() => setNevezesPanelAllapot(false)} enev={esemenyNev} size="lg" id={eventID} />
-      <SzerkUrlap allapot={szerkPanelAllapot} kilep={() => setSzerkPanelAllapot(false)} enev={esemenyNev} size="lg" />
+      <Torles allapot={torolPanelAllapot} kilep={() => setTorolPanelAllapot(false)} esemenyNev={esemenyNev} size="lg" />
+      <NevezesiLista allapot={nevezesPanelAllapot} kilep={() => setNevezesPanelAllapot(false)} eventID={eventID} esemenyNev={esemenyNev} size="lg" />
+      <SzerkUrlap allapot={szerkPanelAllapot} kilep={() => setSzerkPanelAllapot(false)} esemenyNev={esemenyNev} size="lg" />
       <Piritos allapot={piritosAllapot} kilep={() => setPiritosAllapot(false)} type={"success"} message={"Sikeresen bezártad a panelt!"} />
       <h1 className='row justify-content-center'>Szervezett versenyeim</h1>
       <div className='versenyek'>
