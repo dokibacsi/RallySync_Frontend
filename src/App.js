@@ -11,9 +11,9 @@ import AdminLayout from "./layouts/AdminLayout";
 import Bejelentkezes from "./pages/Bejelentkezes";
 import Regisztracio from "./pages/Regisztracio";
 import Versenyek from "./pages/Vendeg/Versenyek";
-import SzVersenyek from "./pages/Szervezo/SzVersenyek";
-import SzervezesUrlap from "./pages/Szervezo/SzervezesUrlap";
 import Profil from "./pages/Profil";
+import Szervezes from "./pages/Szervezo/Szervezes";
+import Versenyeim from "./pages/Szervezo/Versenyeim";
 
 
 function AppRoutes() {
@@ -43,8 +43,8 @@ function AppRoutes() {
             {user && user.permission === 2 ? (
                 <Route path="/" element={<SzervezoLayout />}>
                     <Route index element={<Kezdolap />} />
-                    <Route path="versenyeim" element={<SzVersenyek />} />
-                    <Route path="szervezes" element={<SzervezesUrlap />} />
+                    <Route path="versenyeim" element={<Versenyeim />} />
+                    <Route path="szervezes" element={<Szervezes />} />
                     <Route path="Profil" element={<Profil />} />
                 </Route>
             ) : ""}

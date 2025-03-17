@@ -1,0 +1,22 @@
+.versenyek {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+@media screen and (max-width: 950px) {
+    .versenyek {
+        grid-template-columns: 1fr 1fr;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .versenyek {
+        grid-template-columns: 1fr;
+        gap: 0;
+        width: 90%;
+    }
+}

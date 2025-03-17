@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Form } from "react-bootstrap";
-import "../../css/szervezUrlap.css";
+import "../../css/Urlap.css";
 import APIContext from "../../contexts/APIContext";
 
-function Szervezes() {
+function SzervUrlap({ adatok }) {
   const { user } = useContext(AuthContext);
   const { postCompetition } = useContext(APIContext);
   const { helyszinLista, categoryLista, getHelyszin, getKategoriak } = useContext(APIContext);
@@ -19,11 +19,12 @@ function Szervezes() {
   const eventFelvisz = async (e) => {
     e.preventDefault();
     postCompetition(data);
+    adatok = data;
   };
 
   return (
     <div className="container mt-6">
-      <Form className="urlap" onSubmit={eventFelvisz}>
+      <Form className="urlap mt-6" style={{ width: '80%', maxWidth: '1200px', margin: '0 auto' }} onSubmit={eventFelvisz}>
         <h3 className="mb-4">Szervezés</h3>
 
         <div className="mb-3">
@@ -81,8 +82,8 @@ function Szervezes() {
                       category: e.target.checked
                         ? [...elozoAdat.category, elem.categ_id]
                         : elozoAdat.category.filter(
-                            (item) => item !== elem.categ_id
-                          ),
+                          (item) => item !== elem.categ_id
+                        ),
                     }))
                   }
                 />
@@ -185,12 +186,16 @@ function Szervezes() {
             />
           </div>
         </div>
-        <button className="gomb btn btn-outline-primary" type="submit">
-          Létrehoz
-        </button>
+        <div className="row justify-content-center">
+          <div className="col-auto">
+            <button className="gomb btn btn-outline-primary mx-1 mb-1" type="submit">
+              Mentés
+            </button>
+          </div>
+        </div>
       </Form>
     </div>
   );
 }
 
-export default Szervezes;
+export default SzervUrlap;

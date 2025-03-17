@@ -10,6 +10,7 @@ export const APIProvider = ({ children }) => {
     const [helyszinLista, setHL] = useState([]);
     const [categoryLista, setKL] = useState([]);
     const [versenyekLista, setVL] = useState([]);
+    const [nevezesiLista, setNevezesek] = useState([]);
 
     const getMyCompetitions = async (id) => {
         try {
@@ -41,7 +42,6 @@ export const APIProvider = ({ children }) => {
         }
     };
 
-
     const postCompetition = async (data) => {
         try {
             const response = await myAxios.post("api/competition", data); // POST kérést küldünk
@@ -56,6 +56,15 @@ export const APIProvider = ({ children }) => {
             const response = await myAxios.get("api/categories");
             console.log(response.data)
             setKL(response.data)
+        } catch (error) {
+            console.error("Hiba:", error);
+        }
+    };
+
+    const getEntryList = async (id) => {
+        try {
+            const response = await myAxios.get(`api/entry-list/${id}`);
+            setNevezesek(response.data)
         } catch (error) {
             console.error("Hiba:", error);
         }
@@ -80,6 +89,6 @@ export const APIProvider = ({ children }) => {
         }
     };
 
-    return (<APIContext.Provider value={{ sajatVersenyLista, helyszinLista, categoryLista, versenyekLista, postCompetition, getMyCompetitions, getKategoriak, getHelyszin, destroyCompCateg, destroyCompetition, sajatVersenyLista }}>{children}</APIContext.Provider>)
+    return (<APIContext.Provider value={{ sajatVersenyLista, helyszinLista, categoryLista, versenyekLista, postCompetition, getMyCompetitions, getKategoriak, getHelyszin, destroyCompCateg, destroyCompetition, sajatVersenyLista, getEntryList, nevezesiLista }}>{children}</APIContext.Provider>)
 }
 export default APIContext

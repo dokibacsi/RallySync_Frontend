@@ -17,7 +17,7 @@ function NavigacioVersenyzo() {
 
                 {/* MOBIL MENÜ */}
                 <div className="d-md-none">
-                    <Navbar.Toggle aria-controls="offcanvasNavbar" className="border-0 toggle-white" />
+                    <Navbar.Toggle aria-controls="offcanvasNavbar" className="border-0" />
                     <Navbar.Offcanvas
                         id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel"
@@ -30,10 +30,10 @@ function NavigacioVersenyzo() {
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <Nav className="justify-content-end flex-grow-1 pe-3">
-                                <Nav.Link as={Link} to="/" className="text-black">Kezdőlap</Nav.Link>
-                                <Nav.Link as={Link} to="/versenyeim" className="text-black">Versenyeim</Nav.Link>
-                                <Nav.Link as={Link} to="/szervezes" className="text-black">Szervezés</Nav.Link>
-                                <Nav.Link as={Link} to="/felhasznaloiAdatok" className="text-black">Felhasználói Adatok</Nav.Link>
+                                <Nav.Link as={Link} to="/" >Kezdőlap</Nav.Link>
+                                <Nav.Link as={Link} to="/versenyeim" >Versenyeim</Nav.Link>
+                                <Nav.Link as={Link} to="/szervezes" >Szervezés</Nav.Link>
+                                <Nav.Link as={Link} to="/felhasznaloiAdatok" >Felhasználói Adatok</Nav.Link>
                                 <Button
                                     className="w-100 mt-2 logout-btn"
                                     onClick={logout}
