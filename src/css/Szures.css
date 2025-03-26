@@ -1,0 +1,62 @@
+.szures {
+    border: 2px solid grey;
+    margin: auto;
+    padding: 20px;
+}
+
+.szures h3 {
+    text-align: center;
+}
+
+.szuresElemek {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 80%;
+    gap: 10px;
+    margin: auto;
+    padding: 20px;
+}
+
+.szuresElemek select {
+    border: 1px solid #0DCAF0;
+    color: #0DCAF0;
+    transition: 0.1s;
+}
+
+.szuresElemek select:hover {
+    color: black;
+    background-color: #0DCAF0;
+    transition: 0.1s;
+}
+
+.szuresElemek input {
+    border: 1px solid #0DCAF0;
+    color: #0DCAF0;
+    transition: 0.1s;
+    border-radius: 5%;
+}
+
+.szuresElemek input:hover {
+    color: black;
+    background-color: #0DCAF0;
+    transition: 0.1s;
+}
+
+.szuresElemek option {
+    background-color: black;
+    color: #0DCAF0;
+}
+
+@media screen and (max-width: 995px) {
+    .szuresElemek {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .szuresElemek {
+        grid-template-columns: 1fr;
+    }
+
+}

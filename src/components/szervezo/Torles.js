@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import Piritos from '../Piritos'
+import APIContext from '../../contexts/APIContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
-function Torles({ allapot, kilep, enev, size }) {
+function Torles({ allapot, kilep, enev, size, eventID }) {
+
+    const { user } = useContext(AuthContext)
+    const { destroyCompetition, getMyCompetitions } = useContext(APIContext)
+
+    const eventTorol = async (e) => {
+        e.preventDefault();
+        destroyCompetition(eventID);
+        getMyCompetitions(user.id)
+        kilep();
+    };
 
     return (
         <Modal size={size} show={allapot} onHide={kilep} data-bs-theme="dark">
@@ -17,7 +29,7 @@ function Torles({ allapot, kilep, enev, size }) {
                 <Button variant="secondary" onClick={kilep} >
                     Mégse
                 </Button>
-                <Button variant="danger">
+                <Button variant="danger" onClick={eventTorol}>
                     Törlés
                 </Button>
             </Modal.Footer>

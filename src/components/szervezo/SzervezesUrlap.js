@@ -4,14 +4,13 @@ import { Form } from "react-bootstrap";
 import "../../css/Urlap.css";
 import APIContext from "../../contexts/APIContext";
 
-function SzervUrlap({ adatok }) {
+function SzervUrlap() {
   const { user } = useContext(AuthContext);
   const { postCompetition } = useContext(APIContext);
   const { helyszinLista, categoryLista, getHelyszin, getKategoriak } = useContext(APIContext);
   const [data, setData] = useState({ organiser: user.id, category: [] });
 
   useEffect(() => {
-    console.log(user)
     getHelyszin();
     getKategoriak();
   }, []);
@@ -19,7 +18,7 @@ function SzervUrlap({ adatok }) {
   const eventFelvisz = async (e) => {
     e.preventDefault();
     postCompetition(data);
-    adatok = data;
+    console.log(data)
   };
 
   return (

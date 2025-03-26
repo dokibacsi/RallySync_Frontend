@@ -6,6 +6,10 @@
     margin: auto;
 }
 
+.versenyek h3 {
+    width: 100%;
+}
+
 @media screen and (max-width: 950px) {
     .versenyek {
         grid-template-columns: 1fr 1fr;

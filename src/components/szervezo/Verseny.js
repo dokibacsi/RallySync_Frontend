@@ -12,7 +12,7 @@ function Verseny({ elem, value }) {
 
   function torles(e) {
     e.preventDefault();
-    value.torol(elem.compname)
+    value.torol(elem.compname, elem.id)
   }
 
   function nevezes(e) {
@@ -22,7 +22,7 @@ function Verseny({ elem, value }) {
 
   function szerkesztes(e) {
     e.preventDefault();
-    value.szerkesztes()
+    value.szerkesztes(elem.id)
   }
 
   return (
