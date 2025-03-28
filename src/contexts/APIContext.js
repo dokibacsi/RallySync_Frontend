@@ -45,7 +45,11 @@ export const APIProvider = ({ children }) => {
 
     const postCompetition = async (data) => {
         try {
-            const response = await myAxios.post("api/competition", data); // POST kérést küldünk
+            await myAxios.post("api/competition", data, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                }
+            });
             console.log("Sikeres feltöltés!");
         } catch (error) {
             console.error("Hiba:", error);

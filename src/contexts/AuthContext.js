@@ -26,6 +26,15 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const updateUser = async () => {
+        try {
+            const { data } = await myAxios.put(`/api/update-user`);
+            setUser(data);
+        } catch (error) {
+            console.error("Error fetching user:", error);
+        }
+    };
+
     const logout = async () => {
         await csrf();
         try {
@@ -58,7 +67,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, logout, loginReg, errors, getUser }}>
+        <AuthContext.Provider value={{ user, logout, loginReg, errors, getUser, setUser, updateUser }}>
             {children}
         </AuthContext.Provider>
     );

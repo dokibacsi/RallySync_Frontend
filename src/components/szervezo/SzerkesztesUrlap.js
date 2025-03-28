@@ -11,7 +11,6 @@ function SzerkUrlap({ allapot, kilep, eventID }) {
   useEffect(() => {
     getHelyszin();
     getKategoriak();
-    console.log(user.id)
     if (eventID) {
       getSelectedCompetition(eventID)
     }
@@ -128,42 +127,6 @@ function SzerkUrlap({ allapot, kilep, eventID }) {
                   setSelectedCompetition((elozoAdat) => ({
                     ...elozoAdat,
                     end_date: e.target.value,
-                  }))
-                }
-              />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label htmlFor="min_entry" className="form-label">
-                Minimum jelentkezések
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                name="min_entry"
-                id="min_entry"
-                value={selectedCompetition.min_entry} // Minimum jelentkezések
-                onChange={(e) =>
-                  setSelectedCompetition((elozoAdat) => ({
-                    ...elozoAdat,
-                    min_entry: e.target.value,
-                  }))
-                }
-              />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label htmlFor="max_entry" className="form-label">
-                Maximum jelentkezések
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                name="max_entry"
-                id="max_entry"
-                value={selectedCompetition.max_entry} // Maximum jelentkezések
-                onChange={(e) =>
-                  setSelectedCompetition((elozoAdat) => ({
-                    ...elozoAdat,
-                    max_entry: e.target.value,
                   }))
                 }
               />

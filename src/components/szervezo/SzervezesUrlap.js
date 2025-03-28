@@ -18,7 +18,6 @@ function SzervUrlap() {
   const eventFelvisz = async (e) => {
     e.preventDefault();
     postCompetition(data);
-    console.log(data)
   };
 
   return (
@@ -184,6 +183,22 @@ function SzervUrlap() {
               }
             />
           </div>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="formFile" className="form-label">Fejléc képe</label>
+          <input
+            className="form-control"
+            type="file"
+            name="headerimage"
+            htmlFor="fromFile"
+            id="headerimage"
+            onChange={(e) =>
+              setData((elozoAdat) => ({
+                ...elozoAdat,
+                headerimage: e.target.files[0]
+              }))
+            }
+          />
         </div>
         <div className="row justify-content-center">
           <div className="col-auto">

@@ -28,10 +28,12 @@ function Verseny({ elem, value }) {
   return (
     <>
       <div className={`card container mt-4 ${elem.id}`}>
-        <div className='card-body'>
-          <h5 className="card-title mb-1">{elem.compname}</h5>
+        <h5 className="card-title mb-1" style={{ textAlign: 'center', paddingTop: '10px' }}>{elem.compname}</h5>
+        <div className='card-header'>
+          <img className="card-img-top" style={{ width: "100%" }} src={`http://localhost:8000/${elem.headerimage}`} alt={`${elem.headerimage}`} />
         </div>
         <div className="card-body">
+          <p className="list-group-item">Versenyazonosító: {elem.id}</p>
           <p className="list-group-item">Helyszín: {elem.place}</p>
           <p className="list-group-item">Időtartam: {elem.start} - {elem.end}</p>
           <p className="list-group-item">Kategória: {elem.category}</p>
@@ -41,7 +43,7 @@ function Verseny({ elem, value }) {
           <button type="button" className="btn btn-outline-warning mx-1 mb-1" onClick={(e) => szerkesztes(e)}> Szerkesztés </button>
           <button type="button" className="btn btn-outline-danger mx-1 mb-1" onClick={(e) => torles(e)}> Törlés </button>
         </div>
-      </div>
+      </div >
     </>
   );
 }
