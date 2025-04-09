@@ -4,7 +4,7 @@ import Piritos from '../Piritos'
 import APIContext from '../../contexts/APIContext';
 import { AuthContext } from '../../contexts/AuthContext';
 
-function Torles({ allapot, kilep, enev, size, eventID }) {
+function Torles({ allapot, kilep, esemenyNev, size, eventID }) {
 
     const { user } = useContext(AuthContext)
     const { destroyCompetition, getMyCompetitions } = useContext(APIContext)
@@ -22,7 +22,7 @@ function Torles({ allapot, kilep, enev, size, eventID }) {
                 <Modal.Title>Biztosan törölni szeretnél?</Modal.Title>
             </Modal.Header>
             <Modal.Body className="text-center">
-                <p>A törölni kívánt esemény: {enev}</p>
+                <p>A törölni kívánt esemény: {esemenyNev}</p>
                 <p><b>A törlés nem vonható vissza!</b></p>
             </Modal.Body>
             <Modal.Footer>

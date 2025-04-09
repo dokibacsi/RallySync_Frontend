@@ -70,7 +70,6 @@ export default function Bejelentkezes() {
                     </button>
 
                     <p>
-                        Még nincs fiókja?
                         Még nincs felhaszálója?
                         <Link className="nav-link text-info" to="/regisztracio">
                             Regisztráció
