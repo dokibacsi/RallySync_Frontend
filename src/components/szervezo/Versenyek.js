@@ -4,7 +4,6 @@ import APIContext from '../../contexts/APIContext';
 import Verseny from './Verseny';
 import SzervezoContext from '../../contexts/SzervezoContext';
 import Torles from './Torles';
-import Piritos from '../Piritos';
 import NevezesiLista from './NevezesiLista';
 import "../../css/szervezVersenyek.css";
 import SzerkUrlap from './SzerkesztesUrlap';
@@ -18,7 +17,6 @@ function Versenyek() {
   const [nevezesPanelAllapot, setNevezesPanelAllapot] = useState(false)
   const [szerkPanelAllapot, setSzerkPanelAllapot] = useState(false)
   const [szuresPanelAllapot, setSzuresPanelAllapot] = useState(false)
-  const [piritosAllapot, setPiritosAllapot] = useState(false)
   const [esemenyNev, setEsemenyNev] = useState()
   const [eventID, setID] = useState()
 
@@ -72,7 +70,6 @@ function Versenyek() {
       <Torles allapot={torolPanelAllapot} kilep={() => setTorolPanelAllapot(false)} eventID={eventID} esemenyNev={esemenyNev} size="lg" />
       <NevezesiLista allapot={nevezesPanelAllapot} kilep={() => setNevezesPanelAllapot(false)} eventID={eventID} esemenyNev={esemenyNev} size="lg" />
       <SzerkUrlap allapot={szerkPanelAllapot} kilep={() => setSzerkPanelAllapot(false)} eventID={eventID} size="lg" />
-      <Piritos allapot={piritosAllapot} kilep={() => setPiritosAllapot(false)} type={"success"} message={"Sikeresen bezártad a panelt!"} />
       <h1 className='row justify-content-center'>Szervezett versenyeim</h1>
       <button className='btn btn-outline-info mx-1 mb-1' onClick={szuresek}>Szűrés panel</button>
       <Szures allapot={szuresPanelAllapot} kilep={() => setSzuresPanelAllapot(false)} szuresekFunction={szuresek} />

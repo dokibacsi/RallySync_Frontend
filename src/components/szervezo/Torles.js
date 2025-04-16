@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { Button, Modal } from 'react-bootstrap'
-import Piritos from '../Piritos'
 import APIContext from '../../contexts/APIContext';
 import { AuthContext } from '../../contexts/AuthContext';
 

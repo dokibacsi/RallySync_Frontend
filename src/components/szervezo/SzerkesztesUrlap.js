@@ -18,6 +18,32 @@ function SzerkUrlap({ allapot, kilep, eventID }) {
 
   const eventModosit = async (e) => {
     e.preventDefault();
+
+    // Validációs szabályok
+    const nameRegex = /^[\w\s]{3,}$/; // legalább 3 karakter, csak betűk, számok, szóköz
+    const { event_name, place, description, start_date, end_date } = selectedCompetition;
+
+    if (!nameRegex.test(event_name)) {
+      alert("A megnevezésnek legalább 3 karakterből kell állnia, és csak betűket/számokat tartalmazhat!");
+      return;
+    }
+
+    if (place === "Válassz egy helyszínt!") {
+      alert("Kérlek válassz egy helyszínt!");
+      return;
+    }
+
+    if (!description || description.length < 10) {
+      alert("A leírásnak legalább 10 karakter hosszúnak kell lennie!");
+      return;
+    }
+
+    if (new Date(start_date) > new Date(end_date)) {
+      alert("A kezdési dátum nem lehet későbbi, mint a befejezési dátum!");
+      return;
+    }
+
+    // Sikeres validáció után
     setSelectedCompetition((prevD) => ({ ...prevD, organiser: user.id }));
     updateCompetition(selectedCompetition, eventID);
     const updatedCompetitions = await getMyCompetitions(user.id);

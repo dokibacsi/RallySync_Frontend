@@ -17,6 +17,64 @@ function SzervUrlap() {
 
   const eventFelvisz = async (e) => {
     e.preventDefault();
+
+    // Validáció
+    if (!data.event_name || data.event_name.trim() === "") {
+      alert("Kérlek, add meg az esemény nevét!");
+      return;
+    }
+
+    if (!data.place || data.place === "Válassz egy helyszínt") {
+      alert("Kérlek, válassz helyszínt!");
+      return;
+    }
+
+    if (!data.category || data.category.length === 0) {
+      alert("Kérlek, válassz legalább egy kategóriát!");
+      return;
+    }
+
+    if (!data.description || data.description.trim() === "") {
+      alert("Kérlek, add meg a leírást!");
+      return;
+    }
+
+    if (!data.start_date) {
+      alert("Kérlek, válaszd ki a kezdési dátumot!");
+      return;
+    }
+
+    if (!data.end_date) {
+      alert("Kérlek, válaszd ki a zárási dátumot!");
+      return;
+    }
+
+    if (new Date(data.end_date) < new Date(data.start_date)) {
+      alert("A befejezés dátum nem lehet korábbi, mint a kezdési dátum!");
+      return;
+    }
+
+    if (!data.min_entry || isNaN(data.min_entry)) {
+      alert("Kérlek, adj meg egy érvényes minimum jelentkezési számot!");
+      return;
+    }
+
+    if (!data.max_entry || isNaN(data.max_entry)) {
+      alert("Kérlek, adj meg egy érvényes maximum jelentkezési számot!");
+      return;
+    }
+
+    if (parseInt(data.max_entry) < parseInt(data.min_entry)) {
+      alert("A maximum jelentkezés nem lehet kevesebb, mint a minimum!");
+      return;
+    }
+
+    if (!data.headerimage) {
+      alert("Kérlek, válassz egy fejléc képet!");
+      return;
+    }
+
+    // Ha minden rendben van, küldjük az adatokat
     postCompetition(data);
   };
 

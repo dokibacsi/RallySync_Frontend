@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import logo2 from "../pages/logo2.png";
 import { AuthContext } from "../contexts/AuthContext";
 
-function NavigacioVersenyzo() {
+function NavigacioSzervezo() {
     const { logout } = useContext(AuthContext);
 
     return (
@@ -100,4 +100,4 @@ function NavigacioVersenyzo() {
     );
 }
 
-export default NavigacioVersenyzo;
+export default NavigacioSzervezo;
