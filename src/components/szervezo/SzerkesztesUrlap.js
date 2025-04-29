@@ -19,14 +19,7 @@ function SzerkUrlap({ allapot, kilep, eventID }) {
   const eventModosit = async (e) => {
     e.preventDefault();
 
-    // Validációs szabályok
-    const nameRegex = /^[\w\s]{3,}$/; // legalább 3 karakter, csak betűk, számok, szóköz
-    const { event_name, place, description, start_date, end_date } = selectedCompetition;
-
-    if (!nameRegex.test(event_name)) {
-      alert("A megnevezésnek legalább 3 karakterből kell állnia, és csak betűket/számokat tartalmazhat!");
-      return;
-    }
+    const { place, description, start_date, end_date } = selectedCompetition;
 
     if (place === "Válassz egy helyszínt!") {
       alert("Kérlek válassz egy helyszínt!");

@@ -58,11 +58,8 @@ function NavigacioSzervezo() {
                         <Navbar.Brand href="/" className="mx-4 d-flex justify-content-center">
                             <img src={logo2} alt="Logo" width="50" height="50" />
                         </Navbar.Brand>
-                        <Nav.Link as={Link} to="/profil" className="text-white">Profil</Nav.Link>
-                        <Button
-                            className="logout-btn text-nowrap"
-                            onClick={logout}
-                        >
+                        <Nav.Link as={Link} to="/profil" className="text-white" disabled={true}>Profil</Nav.Link>
+                        <Button className="logout-btn text-nowrap" onClick={logout}>
                             Kijelentkezés
                         </Button>
                     </Nav>
